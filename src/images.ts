@@ -2,7 +2,7 @@
     Author: Malte Rosenbjerg
     License: MIT */
 
-import {NodeType, Package, INxtx} from '../nxtx';
+import {NodeType, Package, INxtx} from '../nxtx-interface';
 declare const nxtx: INxtx;
 
 const pkg : Package = {

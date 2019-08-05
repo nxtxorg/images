@@ -1,2 +1,35 @@
-var images=function(){"use strict";var a;!function(a){a[a.Paragraph=1]="Paragraph",a[a.Command=2]="Command",a[a.Text=3]="Text",a[a.Block=4]="Block",a[a.Html=5]="Html",a[a.Node=6]="Node",a[a.Dictionary=11]="Dictionary",a[a.Array=12]="Array",a[a.Number=13]="Number",a[a.String=14]="String"}(a||(a={}));var t={name:"images",commands:{image:function(t,e){return void 0===e&&(e={type:a.Number,value:100}),nxtx.htmlLite("img",{src:t.value,style:"max-width: "+e.value+"%"})},images:function(a){return a.value.map(function(t){return nxtx.htmlLite("img",{src:t.value,style:"max-width: calc("+99.9/a.value.length+"% - 4px); margin: 2px"})})}}};return nxtx&&nxtx.registerPackage(t),t}();
+var images = (function () {
+    'use strict';
+
+    var NodeType;
+    (function (NodeType) {
+        NodeType[NodeType["Paragraph"] = 1] = "Paragraph";
+        NodeType[NodeType["Command"] = 2] = "Command";
+        NodeType[NodeType["Text"] = 3] = "Text";
+        NodeType[NodeType["Block"] = 4] = "Block";
+        NodeType[NodeType["Html"] = 5] = "Html";
+        NodeType[NodeType["Node"] = 6] = "Node";
+        NodeType[NodeType["Boolean"] = 10] = "Boolean";
+        NodeType[NodeType["Dictionary"] = 11] = "Dictionary";
+        NodeType[NodeType["Array"] = 12] = "Array";
+        NodeType[NodeType["Number"] = 13] = "Number";
+        NodeType[NodeType["String"] = 14] = "String";
+    })(NodeType || (NodeType = {}));
+
+    var pkg = {
+        name: 'images',
+        commands: {
+            'image': function (srcNode, pctNode) {
+                if (pctNode === void 0) { pctNode = { type: NodeType.Number, value: 100 }; }
+                return nxtx.htmlLite('img', { src: srcNode.value, style: "max-width: " + pctNode.value + "%" });
+            },
+            'images': function (srcArray) { return srcArray.value.map(function (srcNode) { return nxtx.htmlLite('img', { src: srcNode.value, style: "max-width: calc(" + (99.9 / srcArray.value.length) + "% - 4px); margin: 2px" }); }); }
+        }
+    };
+    if (nxtx)
+        nxtx.registerPackage(pkg);
+
+    return pkg;
+
+}());
 //# sourceMappingURL=images.js.map
